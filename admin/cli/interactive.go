@@ -268,13 +268,13 @@ func Interactive() {
 			}
 			fmt.Print("use password (1) / ssh key (2)? ")
 			var choice uint16
-			fmt.Scanf("%d", &choice)
+			fmt.Scan(&choice)
 			if checkPeerNodeIsVaild() {
 				switch choice {
 				case 1:
 					fmt.Print("password: ")
 					var password string
-					fmt.Scanf("%s", &password)
+					fmt.Scan(&password)
 					fmt.Printf("connect to target host's %d through ssh tunnel (%s@%s:%d).\n", dport, sshUser, sshHost, sshPort)
 					if isAdmin() {
 						dispather.BuiltinSshConnectCmd(sshUser, sshHost, sshPort, dport, choice, password)
